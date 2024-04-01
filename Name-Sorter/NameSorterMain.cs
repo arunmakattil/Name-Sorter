@@ -20,15 +20,20 @@ namespace Name_Sorter
                 Console.WriteLine("Usage: name-sorter <file-path>");
                 return;
             }
+            // Get the file path from command line arguments
+            string filePath = args[0];
+
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine("Invalid file path provided");
+                return;
+            }
             //File name to save the sorted name list
             string sortedNamesFileName = "sorted-names-list.txt";
 
             ITextFileReader fileReader = new TextFileReader();
             ITextFileWriter fileWriter = new TextFileWriter();
             INameSorter nameSorter = new NameSorter();
-
-            // Get the file path from command line arguments
-            string filePath = args[0];
 
             List<Name> names = fileReader.ReadNamesFromFile(filePath); //Read names from the input file
 

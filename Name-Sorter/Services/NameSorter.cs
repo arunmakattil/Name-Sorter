@@ -18,8 +18,10 @@ namespace Name_Sorter.Services
         public List<Name> SortNames(List<Name> names)
         {
             List<Name> sortedList=new List<Name>();
-            // Sort the names first by last name, then by given names
-            sortedList = names.OrderBy(n => n.LastName)
+            
+            // Sort the names first by last name, then by given names. If the last name is not present it will sort at the end
+            sortedList = names.OrderBy(n => n.LastName==string.Empty ? 1 : 0)
+                              .ThenBy(n => (n.LastName))
                               .ThenBy(n => string.Join(" ", n.GivenNames))
                               .ToList();
             return sortedList;
