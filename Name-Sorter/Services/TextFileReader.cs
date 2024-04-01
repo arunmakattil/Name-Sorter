@@ -10,7 +10,11 @@ namespace Name_Sorter.Services
 {
     public class TextFileReader: ITextFileReader
     {
-        //Reads names from a text file at the specified file path.
+        /// <summary>
+        /// Reads names from a text file at the specified file path.
+        /// </summary>
+        /// <param name="filePath">File path of the text file</param>
+        /// <returns>The list of names</returns>
         public List<Name> ReadNamesFromFile(string filePath)
         {
             List<Name> names = new List<Name>();
@@ -25,7 +29,10 @@ namespace Name_Sorter.Services
                     {
                         // Parse the name from the line and add it to the list
                         Name name = ParseNameFromLine(line);
-                        names.Add(name);
+                        if (name.GivenNames.Count>0 && name.GivenNames.Count<=3)
+                        {
+                            names.Add(name);
+                        }
                     }
                 }
             }
@@ -42,8 +49,10 @@ namespace Name_Sorter.Services
         {
             // Split the line into parts
             string[] nameParts = line.Split(' ');
+
             // The last part is taken as the last name
             string lastName = nameParts.Last();
+
             // The remaining parts are taken as given names
             List<string> givenNames = nameParts.Take(nameParts.Length - 1).ToList();
 

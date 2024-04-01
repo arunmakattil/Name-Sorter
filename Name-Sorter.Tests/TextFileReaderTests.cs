@@ -10,6 +10,7 @@ namespace Name_Sorter.Tests
 {
     public class TextFileReaderTests
     {
+        // Test to verify that the ReadNamesFromFile method reads the names correctly.
         [Fact]
         public void ReadNamesFromFile_ValidFilePath_ReturnsNamesList()
         {
@@ -33,6 +34,8 @@ namespace Name_Sorter.Tests
             // Clean up
             File.Delete(filePath);
         }
+
+        // Test to verify that the ReadNamesFromFile method returns an empty list if an invalid file path is given.
         [Fact]
         public void ReadNamesFromFile_InvalidFilePath_ReturnsEmptyList()
         {
