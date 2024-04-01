@@ -25,7 +25,10 @@ namespace Name_Sorter.Services
                     {
                         // Parse the name from the line and add it to the list
                         Name name = ParseNameFromLine(line);
-                        names.Add(name);
+                        if (name.GivenNames.Count>0 && name.GivenNames.Count<=3)
+                        {
+                            names.Add(name);
+                        }
                     }
                 }
             }
@@ -42,8 +45,10 @@ namespace Name_Sorter.Services
         {
             // Split the line into parts
             string[] nameParts = line.Split(' ');
+
             // The last part is taken as the last name
             string lastName = nameParts.Last();
+
             // The remaining parts are taken as given names
             List<string> givenNames = nameParts.Take(nameParts.Length - 1).ToList();
 
