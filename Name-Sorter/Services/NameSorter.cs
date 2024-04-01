@@ -10,7 +10,11 @@ namespace Name_Sorter.Services
 {
     public class NameSorter : INameSorter
     {
-        // Method to sort a list of names
+        /// <summary>
+        /// Method to sort a list of names
+        /// </summary>
+        /// <param name="names">The list of unsorted names</param>
+        /// <returns>The list of sorted names</returns>
         public List<Name> SortNames(List<Name> names)
         {
             List<Name> sortedList=new List<Name>();
@@ -18,7 +22,6 @@ namespace Name_Sorter.Services
             sortedList = names.OrderBy(n => n.LastName)
                               .ThenBy(n => string.Join(" ", n.GivenNames))
                               .ToList();
-            // Return the sorted list of names
             return sortedList;
         }
     }

@@ -11,7 +11,11 @@ namespace Name_Sorter.Services
     //Service for writing sorted names to a text file.
     public class TextFileWriter: ITextFileWriter
     {
-        // Writes the sorted names to the specified text file.
+        /// <summary>
+        /// Writes the sorted names to the specified text file.
+        /// </summary>
+        /// <param name="names">List of names that need to write</param>
+        /// <param name="sortedNamesFileName">File name where the names need to write</param>
         public void WriteNamesToFile(List<Name> names, string sortedNamesFileName)
         {
             try
@@ -19,8 +23,7 @@ namespace Name_Sorter.Services
                 // Check if the list of names is empty
                 if (names.Count == 0)
                 {
-                    Console.WriteLine("The sorted names list is empty, no names are available.");
-                    return;
+                    throw new ArgumentException("The sorted names list is empty, no names are available.");
                 }
 
                 // Display the sorted names to the console screen

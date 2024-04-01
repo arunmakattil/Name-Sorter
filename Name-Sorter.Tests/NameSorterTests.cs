@@ -11,6 +11,7 @@ namespace Name_Sorter.Tests
 {
     public class NameSorterTests
     {
+        // Unit test to verify that the SortNames method sorts an unsorted list of names in the correct order.
         [Fact]
         public void SortNames_WithUnsortedListOfNames_ShouldSortInOrder()
         {
@@ -32,6 +33,8 @@ namespace Name_Sorter.Tests
             Assert.Equal("Alice Johnson", sortedNamesList[1].ToString());
             Assert.Equal("John David Smith", sortedNamesList[2].ToString());
         }
+
+        // Unit test to verify that the SortNames method sorts an unsorted list of names with same last in the correct order.
         [Fact]
         public void SortNames_WithSameLastNameAndDiffGivenName_ShouldSortNamesInOrder()
         {

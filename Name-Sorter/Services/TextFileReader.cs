@@ -10,7 +10,11 @@ namespace Name_Sorter.Services
 {
     public class TextFileReader: ITextFileReader
     {
-        //Reads names from a text file at the specified file path.
+        /// <summary>
+        /// Reads names from a text file at the specified file path.
+        /// </summary>
+        /// <param name="filePath">File path of the text file</param>
+        /// <returns>The list of names</returns>
         public List<Name> ReadNamesFromFile(string filePath)
         {
             List<Name> names = new List<Name>();

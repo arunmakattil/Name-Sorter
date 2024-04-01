@@ -10,8 +10,9 @@ namespace Name_Sorter.Tests
 {
     public class TextFileWriterTests
     {
+        // Test to verify that the WriteNamesToFile method writes all the names correctly to the specified file path.
         [Fact]
-        public void ReadNamesFromFile_PassListOfName_ShouldWriteTogivenFileName()
+        public void WriteNamesToFile_PassListOfName_ShouldWriteTogivenFileName()
         {
 
             //Arrange
@@ -32,6 +33,7 @@ namespace Name_Sorter.Tests
             File.Delete(sortedNamesFileName);
         }
 
+        // Test to verify that the WriteNamesToFile method skip writing file if the given list is empty.
         [Fact]
         public void WriteNamesToFile_EmptyNameList_ShouldNotCreateFile()
         {
