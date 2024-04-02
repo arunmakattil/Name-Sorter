@@ -37,6 +37,12 @@ namespace Name_Sorter
 
             List<Name> names = fileReader.ReadNamesFromFile(filePath); //Read names from the input file
 
+            if (names.Count <= 0)
+            {
+                Console.WriteLine("Empty file provided: no data found.");
+                return;
+            }
+
             List<Name> sortedNames = nameSorter.SortNames(names); //Sort the names
 
             //Write the sorted names to text file and disply names on screen
