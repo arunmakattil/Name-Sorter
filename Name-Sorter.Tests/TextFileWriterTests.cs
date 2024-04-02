@@ -47,6 +47,10 @@ namespace Name_Sorter.Tests
 
             // Assert
             Assert.False(File.Exists(sortedNamesFileName));
+
+            // Clean-up
+            if(File.Exists(sortedNamesFileName))
+            File.Delete(sortedNamesFileName);
         }
     }
 }

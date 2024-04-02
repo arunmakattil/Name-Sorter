@@ -27,11 +27,13 @@ namespace Name_Sorter.Services
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        // Parse the name from the line and add it to the list
-                        Name name = ParseNameFromLine(line);
-                        
+                        if (!string.IsNullOrWhiteSpace(line))
+                        {
+                            // Parse the name from the line and add it to the list
+                            Name name = ParseNameFromLine(line);
                             names.Add(name);
-                        
+                        }
+
                     }
                 }
             }
